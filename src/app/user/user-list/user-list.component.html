@@ -17,7 +17,7 @@
       <td *ngIf="user.id ===  group.id">{{group.name}}</td>
     </ng-container>
     <td>
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
     </td>
   </tr>
   </tbody>

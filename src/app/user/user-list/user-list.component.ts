@@ -32,4 +32,16 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  delete(id: number) {
+    let userDelete = [];
+    this.users.map(
+      user => {
+        if(user.id != id) {
+          userDelete.push(user);
+        }
+      }
+    );
+    return this.users = userDelete;
+  }
+
 }
