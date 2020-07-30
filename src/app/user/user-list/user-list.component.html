@@ -1,5 +1,6 @@
 <app-input-search messageInput="search user by name:  " (keyWord)="search($event)"></app-input-search>
 <table class="table table-white">
+  <button class="btn btn-primary" [routerLink]= "['add']">Create</button>
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -17,6 +18,7 @@
       <td *ngIf="user.id ===  group.id">{{group.name}}</td>
     </ng-container>
     <td>
+      <button class="btn btn-primary mr-2" [routerLink]="[user.id, 'edit']" >Edit</button>
       <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
     </td>
   </tr>
