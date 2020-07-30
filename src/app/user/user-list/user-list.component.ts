@@ -21,7 +21,15 @@ export class UserListComponent implements OnInit {
     this.groups = this.groupService.getAllGroup();
   }
 
+  search(event) {
+    let keyword = event;
+    this.users = (keyword) ? this.filterByKeyword(keyword) : this.userService.getAllUser();
+  }
 
-
+  filterByKeyword(keyword) {
+    return this.users.filter(user => {
+      return user.name.indexOf(keyword) != -1;
+    });
+  }
 
 }
