@@ -1,0 +1,26 @@
+<app-input-search messageInput="test_message_Input_angular"></app-input-search>
+<table class="table table-white">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; let i = index">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <ng-container *ngFor="let group of groups">
+      <td *ngIf="user.id ===  group.id">{{group.name}}</td>
+    </ng-container>
+    <td>
+      <button class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
