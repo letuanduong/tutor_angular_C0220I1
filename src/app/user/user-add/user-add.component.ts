@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IGroup} from "../../groups/igroup";
-import {UserService} from "../user.service";
-import {GroupService} from "../../groups/group.service";
+import {IGroup} from "../../interfaces/igroup";
+import {UserService} from "../../services/user.service";
+import {GroupService} from "../../services/group.service";
 import {Router} from "@angular/router";
 
 @Component({

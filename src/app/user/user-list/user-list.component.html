@@ -1,4 +1,4 @@
-<app-input-search messageInput="search user by name:  " (keyWord)="search($event)"></app-input-search>
+<!--<app-input-search messageInput="search user by name:  " (keyWord)="search($event)"></app-input-search>-->
 <table class="table table-white">
   <button class="btn btn-primary" [routerLink]= "['add']">Create</button>
   <thead>
@@ -10,12 +10,17 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users; let i = index">
+  <tr *ngFor="let user of users | paginate: {
+                                   id: 'listing_pagination',
+                                   itemsPerPage: 4,
+                                   currentPage: page,
+                                   totalItems: totalRec};
+                                    let i = index">
     <th scope="row">{{i + 1}}</th>
     <td>{{user.name}}</td>
     <td>{{user.email}}</td>
     <ng-container *ngFor="let group of groups">
-      <td *ngIf="user.id ===  group.id">{{group.name}}</td>
+      <td *ngIf="user.group_id ===  group.id">{{group.name}}</td>
     </ng-container>
     <td>
       <button class="btn btn-primary mr-2" [routerLink]="[user.id, 'edit']" >Edit</button>
@@ -24,5 +29,7 @@
   </tr>
   </tbody>
 </table>
-
+<div>
+  <pagination-controls  id="listing_pagination" maxSize="4" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IGroup} from "../../groups/igroup";
+import {IGroup} from "../../interfaces/igroup";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../user.service";
-import {GroupService} from "../../groups/group.service";
+import {UserService} from "../../services/user.service";
+import {GroupService} from "../../services/group.service";
 
 @Component({
   selector: 'app-user-edit',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IGroup} from "./igroup";
+import {IGroup} from "../interfaces/igroup";
 
 @Injectable({
   providedIn: 'root'

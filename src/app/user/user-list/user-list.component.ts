@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IUser} from "../iuser";
-import {UserService} from "../user.service";
-import {GroupService} from "../../groups/group.service";
-import {IGroup} from "../../groups/igroup";
+import {IUser} from "../../interfaces/iuser";
+import {UserService} from "../../services/user.service";
+import {GroupService} from "../../services/group.service";
+import {IGroup} from "../../interfaces/igroup";
 
 @Component({
   selector: 'app-user-list',
@@ -13,6 +13,11 @@ export class UserListComponent implements OnInit {
 
   users: IUser[] = [];
   groups: IGroup[] = [];
+
+  totalRec: number;
+  page: number = 1;
+
+
   constructor(private userService: UserService,
               private groupService: GroupService) { }
 
@@ -24,6 +29,7 @@ export class UserListComponent implements OnInit {
   search(event) {
     let keyword = event;
     this.users = (keyword) ? this.filterByKeyword(keyword) : this.userService.getAllUser();
+    this.totalRec = 20;
   }
 
   filterByKeyword(keyword) {
